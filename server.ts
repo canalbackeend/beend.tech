@@ -11,7 +11,7 @@ app.use(express.json());
 
 const rateLimit = new Map();
 const RATE_LIMIT = 3;
-const RATE_WINDOW = 60 * 1000;
+const RATE_WINDOW = 60 * 60 * 1000; // 1 hour
 
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
