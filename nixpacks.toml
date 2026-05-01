@@ -3,6 +3,8 @@ build = ["npm", "install", "--omit=dev", "&&", "npm", "run", "build"]
 
 [deploy]
 start = ["node", "server.ts"]
+port = 3000
 
 [vars]
+PORT = "3000"
 NODE_ENV = "production"
