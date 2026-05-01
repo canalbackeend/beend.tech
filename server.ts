@@ -11,7 +11,7 @@ app.use(express.json());
 
 const rateLimit = new Map();
 const RATE_LIMIT = 3;
-const RATE_WINDOW = 60 * 60 * 1000; // 1 hour
+const RATE_WINDOW = 60 * 60 * 1000;
 
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
@@ -81,30 +81,6 @@ app.post("/api/contact", async (req, res) => {
     };
 
     await transporter.sendMail(mailOptions);
-    res.json({ success: true });
-  } catch (error: any) {
-    console.error("Error sending mail:", error);
-    res.status(500).json({ success: false, error: error.message });
-  }
-});
-
-    const mailOptions = {
-      from: user,
-      to: to || "beendtech@gmail.com",
-      subject: `Novo contato de ${name} (Portfólio)`,
-      text: `
-        Novo contato recebido pelo site:
-        
-        Nome: ${name}
-        Email: ${email}
-        Telefone: ${phone}
-        
-        Mensagem:
-        ${message}
-      `,
-    };
-
-await transporter.sendMail(mailOptions);
     res.json({ success: true });
   } catch (error: any) {
     console.error("Error sending mail:", error);
