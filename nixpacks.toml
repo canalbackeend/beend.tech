@@ -2,7 +2,7 @@
 build = ["npm", "install", "--omit=dev", "&&", "npm", "run", "build"]
 
 [deploy]
-run = ["node", "server.ts"]
+run = ["npx", "tsx", "server.ts"]
 port = 3000
 
 [vars]

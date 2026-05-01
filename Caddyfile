@@ -1,0 +1,20 @@
+{
+    admin off
+}
+
+:3000 {
+    encode zstd gzip
+
+    @api {
+        path /api/*
+        method POST
+    }
+
+    reverse_proxy @api localhost:3000
+
+    handle {
+        root * /dist
+        try_files {path} {path}/ /index.html
+        file_server
+    }
+}
