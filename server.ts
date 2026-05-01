@@ -18,8 +18,8 @@ async function startServer() {
     console.log("Contact form request received:", { name, email, phone, message, to });
 
     try {
-      const user = process.env.VITE_MAIL_USER;
-      const pass = process.env.VITE_MAIL_PASS;
+      const user = process.env.VITE_MAIL_USER || process.env.MAIL_USER;
+      const pass = process.env.VITE_MAIL_PASS || process.env.MAIL_PASS;
 
       if (!user || !pass) {
         console.warn("Mail credentials missing. Set VITE_MAIL_USER and VITE_MAIL_PASS in Settings.");
