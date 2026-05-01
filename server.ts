@@ -104,7 +104,7 @@ app.post("/api/contact", async (req, res) => {
       `,
     };
 
-    await transporter.sendMail(mailOptions);
+await transporter.sendMail(mailOptions);
     res.json({ success: true });
   } catch (error: any) {
     console.error("Error sending mail:", error);
